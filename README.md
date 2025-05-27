@@ -1,80 +1,80 @@
-# Portable GIS Partial Discharge Detector Software
+# 便携式GIS局部放电检测仪上位机软件
 
-## Purpose
+## 项目目的
 
-This project is a host computer software designed for the detection and analysis of Partial Discharge (PD) in Gas Insulated Switchgear (GIS). It provides tools for visualizing PD data through PRPD (Phase Resolved Partial Discharge) and PRPS (Phase Resolved Pulse Sequence) diagrams. The software uses simulated data that mimics the characteristics of real-world partial discharge events.
+本项目是一款专为气体绝缘开关设备（GIS）中的局部放电（PD）检测与分析而设计的上位机软件。它提供了通过PRPD（相位分辨局部放电）和PRPS（相位分辨脉冲序列）图表可视化局部放电数据的功能。本软件使用模拟数据，这些数据旨在模拟真实世界局部放电事件的特征。
 
-## Features
+## 主要功能
 
--   **PRPD (Phase Resolved Partial Discharge) Display:** Visualizes PD magnitude against the phase angle of the AC cycle.
--   **PRPS (Phase Resolved Pulse Sequence) Display:** Shows PD magnitude over time, with pulses colored by their phase angle.
--   **Data Simulation:** Generates simulated PD data for various types of discharges:
-    -   Random
-    -   Corona
-    -   Internal Void
-    -   Surface Discharge
--   **Interactive UI:** Allows users to select discharge type, number of PD events, and duration for simulation, and view the corresponding plots.
+-   **PRPD (相位分辨局部放电) 显示:** 可视化展示局部放电幅值与交流电压相位的关系。
+-   **PRPS (相位分辨脉冲序列) 显示:** 按时间顺序显示局部放电幅值，并根据脉冲的相位角进行着色。
+-   **数据模拟:** 生成模拟的局部放电数据，可模拟多种放电类型：
+    -   随机放电
+    -   电晕放电
+    -   内部气隙放电
+    -   沿面放电
+-   **交互式用户界面:** 允许用户选择放电类型、PD事件数量和模拟持续时间，并查看相应的图谱。
 
-## Project Structure
+## 项目结构
 
-The project consists of the following key files:
+项目包含以下关键文件：
 
--   `main_app.py`: The main application script that launches the PyQt-based GUI. It handles user interactions and integrates the other modules.
--   `pd_data_simulation.py`: Contains functions for generating simulated PRPD and PRPS data, mimicking different types of partial discharges.
--   `prpd_display.py`: A PyQt widget that uses Matplotlib to render the PRPD diagram.
--   `prps_display.py`: A PyQt widget that uses Matplotlib to render the PRPS diagram.
--   `requirements.txt`: Lists the Python dependencies required for the project.
--   `test_pd_data_simulation.py`: Unit tests for the data simulation module.
--   `test_prpd_display.py`: Unit tests for the PRPD display widget.
--   `test_prps_display.py`: Unit tests for the PRPS display widget.
+-   `main_app.py`: 主应用程序脚本，用于启动基于PyQt的图形用户界面。它处理用户交互并集成其他模块。
+-   `pd_data_simulation.py`: 包含用于生成模拟PRPD和PRPS数据的函数，模拟不同类型的局部放电。
+-   `prpd_display.py`: 一个PyQt控件，使用Matplotlib渲染PRPD图。
+-   `prps_display.py`: 一个PyQt控件，使用Matplotlib渲染PRPS图。
+-   `requirements.txt`: 列出项目所需的Python依赖库。
+-   `test_pd_data_simulation.py`: 数据模拟模块的单元测试。
+-   `test_prpd_display.py`: PRPD显示控件的单元测试。
+-   `test_prps_display.py`: PRPS显示控件的单元测试。
 
-## Setup Instructions
+## 安装说明
 
-1.  **Create a Virtual Environment (Recommended):**
-    Open your terminal or command prompt and navigate to the project directory. Create a virtual environment by running:
+1.  **创建虚拟环境 (推荐):**
+    打开终端或命令提示符，导航到项目目录。运行以下命令创建虚拟环境：
     ```bash
     python -m venv venv
     ```
 
-2.  **Activate the Virtual Environment:**
-    -   On Windows:
+2.  **激活虚拟环境:**
+    -   Windows系统:
         ```bash
         .\venv\Scripts\activate
         ```
-    -   On macOS and Linux:
+    -   macOS 和 Linux 系统:
         ```bash
         source venv/bin/activate
         ```
 
-3.  **Install Dependencies:**
-    With the virtual environment activated, install the required packages from `requirements.txt`:
+3.  **安装依赖:**
+    激活虚拟环境后，通过 `requirements.txt` 文件安装所需的包：
     ```bash
     pip install -r requirements.txt
     ```
 
-## Usage Instructions
+## 使用说明
 
-1.  **Run the Application:**
-    Ensure your virtual environment is activated and you are in the project's root directory. Launch the application by running:
+1.  **运行应用程序:**
+    确保虚拟环境已激活，并且当前路径位于项目根目录。通过运行以下命令启动应用程序：
     ```bash
     python main_app.py
     ```
 
-2.  **Using the Interface:**
-    -   The main window will display "Simulation Controls" on the left and a tabbed area for "PRPD" and "PRPS" plots on the right.
-    -   **Simulation Controls:**
-        -   **Number of Points/Events:** Set the desired number of PD events to simulate.
-        -   **Discharge Type:** Select the type of partial discharge to simulate from the dropdown menu (Random, Corona, Internal Void, Surface Discharge).
-        -   **Duration (seconds for PRPS):** Set the time duration over which the PRPS events will be generated.
-        -   **Generate Data Button:** Click this button to generate new data based on the selected parameters. The PRPD and PRPS plots will update accordingly.
-    -   **Plots:**
-        -   Click on the "PRPD" or "PRPS" tabs to view the respective diagrams.
+2.  **使用界面:**
+    -   主窗口左侧显示“仿真控件”，右侧为包含“PRPD”和“PRPS”图表的选项卡区域。
+    -   **仿真控件:**
+        -   **点/事件数量:** 设置要模拟的PD事件数量。
+        -   **放电类型:** 从下拉菜单中选择要模拟的局部放电类型（随机放电、电晕放电、内部气隙放电、沿面放电）。
+        -   **持续时间 (秒, 针对PRPS):** 设置PRPS事件生成的时间跨度。
+        -   **生成数据按钮:** 点击此按钮根据所选参数生成新数据。PRPD和PRPS图表将相应更新。
+    -   **图表:**
+        -   点击“PRPD”或“PRPS”选项卡查看相应的图表。
 
-## Running Unit Tests
+## 运行单元测试
 
-To run the automated unit tests, ensure your virtual environment is activated and all dependencies are installed. Navigate to the project's root directory in your terminal and run:
+要运行自动化单元测试，请确保虚拟环境已激活并且所有依赖项均已安装。在终端中导航到项目的根目录，然后运行：
 
 ```bash
 python -m unittest discover
 ```
-This command will automatically find and execute all tests within the `test_*.py` files.
+此命令将自动查找并执行 `test_*.py` 文件中的所有测试。
